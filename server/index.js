@@ -268,7 +268,7 @@ app.post('/addPizza', function(request, response)
 
 app.post('/updatePizzasByPrice', function(request, response) 
 {	
-    console.log("cose");
+   
 	var headers = {};
 	headers["Access-Control-Allow-Origin"] = "*";
 	headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
@@ -290,9 +290,6 @@ app.post('/updatePizzasByPrice', function(request, response)
 			 pizzaPrice = parseFloat(request.body.price);
 			 pizzaIncrement = parseFloat(request.body.increment);
 			 pizzaLower = request.body.lower;
-             console.log("pizzaPrice: "+pizzaPrice);
-             console.log("pizzaIncrement: "+pizzaIncrement);
-             console.log("pizzaLower: "+pizzaLower);
             }
         else 
 			pizzaPrice = "not defined";
@@ -302,9 +299,7 @@ app.post('/updatePizzasByPrice', function(request, response)
 		pizzaPrice = "body undefined";
 	}
      if (pizzaPrice!="not defined" && pizzaPrice!="body undefined"){
-         console.log("primo if per undefined");
          if(pizzaManager.updatePizzas(pizzaPrice,pizzaIncrement,pizzaLower)){
-             console.log("chiamata la funzione");
              response.writeHead(200, headers);
 	         response.end(JSON.stringify(pizzaManager.getMenu()));
          }

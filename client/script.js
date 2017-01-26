@@ -84,7 +84,7 @@ $(document).ready(function()
 		},
 		function(data, status){
 			console.log(data);
-			alert("Status: " + status);
+			alert("Status: " + status + "Use /showList to see the change!");
 		},
 		"json");
 	});
